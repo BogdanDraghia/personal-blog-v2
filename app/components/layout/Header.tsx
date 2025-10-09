@@ -1,10 +1,10 @@
-import { useEffect, useState, useRef } from "react";
-import type { MouseEvent } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import Moon from "@/components/assets/moon";
-import Logo from "@/components/assets/logo";
-import { NavLink, Link } from "react-router";
-import style from "./layout.module.css";
+import { useEffect, useState, useRef } from 'react';
+import type { MouseEvent } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import Moon from '@/components/assets/moon';
+import Logo from '@/components/assets/logo';
+import { NavLink, Link } from 'react-router';
+import style from './layout.module.css';
 
 const Header = () => {
   const ref = useRef<HTMLLIElement>(null);
@@ -22,7 +22,7 @@ const Header = () => {
   };
   const dropwdownBlock = {
     up: { height: 0, opacity: 0 },
-    down: { height: "fit-content", opacity: 1 },
+    down: { height: 'fit-content', opacity: 1 },
   };
 
   const [changeTheme, setChangeTheme] = useState(true);
@@ -37,19 +37,19 @@ const Header = () => {
           setRenderDropdown(false);
         }
       };
-      document.addEventListener("mousedown", clickedOut as unknown as EventListener);
+      document.addEventListener('mousedown', clickedOut as unknown as EventListener);
       return () => {
-        document.removeEventListener("mousedown", clickedOut as unknown as EventListener);
+        document.removeEventListener('mousedown', clickedOut as unknown as EventListener);
       };
     }
   }, [renderDropdown, stateBurger]);
   useEffect(() => {
-    let savedTheme = window.localStorage.getItem("theme");
-    if (savedTheme === "darkmode") {
-      document.body.classList.add("darkmode");
+    let savedTheme = window.localStorage.getItem('theme');
+    if (savedTheme === 'darkmode') {
+      document.body.classList.add('darkmode');
       setChangeTheme(false);
     } else {
-      document.body.classList.add("lightmode");
+      document.body.classList.add('lightmode');
       setChangeTheme(true);
     }
   }, []);
@@ -61,13 +61,13 @@ const Header = () => {
   };
   const changethemeHandler = () => {
     if (changeTheme) {
-      document.body.classList.remove("lightmode");
-      document.body.classList.add("darkmode");
-      window.localStorage.setItem("theme", "darkmode");
+      document.body.classList.remove('lightmode');
+      document.body.classList.add('darkmode');
+      window.localStorage.setItem('theme', 'darkmode');
     } else {
-      document.body.classList.remove("darkmode");
-      document.body.classList.add("lightmode");
-      window.localStorage.setItem("theme", "lightmode");
+      document.body.classList.remove('darkmode');
+      document.body.classList.add('lightmode');
+      window.localStorage.setItem('theme', 'lightmode');
     }
     setChangeTheme(!changeTheme);
   };
@@ -83,26 +83,18 @@ const Header = () => {
               : `${style.closedNavMenu} ${style.navMenuWrap}`
           }
         >
-          <ul
-            className={`${style.navMenu} ${
-              stateBurger ? style.color1 : style.color2
-            }`}
-          >
+          <ul className={`${style.navMenu} ${stateBurger ? style.color1 : style.color2}`}>
             <AnimatePresence>
-              <li
-                className={style.listItem}
-                ref={ref}
-                onClick={() => ToggleButtonDropdown()}
-              >
+              <li className={style.listItem} ref={ref} onClick={() => ToggleButtonDropdown()}>
                 <div className={style.dropdownBlock}>
                   <div>My work</div>
                   <div className={style.dropdownArrow}>
                     <motion.div
                       transition={{
-                        type: "spring",
+                        type: 'spring',
                         default: { duration: 0.05 },
                       }}
-                      animate={renderDropdown ? "down" : "up"}
+                      animate={renderDropdown ? 'down' : 'up'}
                       initial={false}
                       variants={variantsDropDown2}
                       className={style.dropdownArrowLine1}
@@ -111,9 +103,9 @@ const Header = () => {
                       initial={false}
                       transition={{
                         duration: 0.5,
-                        default: { duration: 0.05 }
+                        default: { duration: 0.05 },
                       }}
-                      animate={renderDropdown ? "down" : "up"}
+                      animate={renderDropdown ? 'down' : 'up'}
                       variants={variantsDropDown1}
                       className={style.dropdownArrowLine2}
                     ></motion.div>
@@ -121,7 +113,7 @@ const Header = () => {
                 </div>
 
                 <motion.ul
-                  animate={renderDropdown ? "down" : "up"}
+                  animate={renderDropdown ? 'down' : 'up'}
                   variants={dropwdownBlock}
                   initial={false}
                   className={style.dropdownItems}
@@ -140,28 +132,24 @@ const Header = () => {
             </AnimatePresence>
 
             <li onClick={() => toggleButtonBurger()}>
-              <Link to="/blog" className={style.menuText}>Blog</Link>
+              <Link to="/blog" className={style.menuText}>
+                Blog
+              </Link>
             </li>
             <li onClick={() => toggleButtonBurger()}>
-              <Link to="/contact" style={{ color: "#6aa7e8" }} className={style.menuText}>
+              <Link to="/contact" style={{ color: '#6aa7e8' }} className={style.menuText}>
                 Contact
               </Link>
             </li>
             <li className={style.changethemeli}>
-              <div
-                className={style.changeTheme}
-                onClick={() => changethemeHandler()}
-              >
+              <div className={style.changeTheme} onClick={() => changethemeHandler()}>
                 <motion.div
                   initial={false}
-                  animate={changeTheme ? "darkMotion" : "lightMotion"}
+                  animate={changeTheme ? 'darkMotion' : 'lightMotion'}
                   variants={variants}
                   className={style.circlechange}
                 >
-                  <Moon
-                    className={style.MoonVar}
-                    style={{ height: "20px", rotate: "40deg" }}
-                  />
+                  <Moon className={style.MoonVar} style={{ height: '20px', rotate: '40deg' }} />
                 </motion.div>
               </div>
             </li>
@@ -173,23 +161,17 @@ const Header = () => {
         >
           <div
             className={
-              !stateBurger
-                ? style.burgerLine
-                : `${style.burgerLine} ${style.bgLineAnimate1}`
+              !stateBurger ? style.burgerLine : `${style.burgerLine} ${style.bgLineAnimate1}`
             }
           ></div>
           <div
             className={
-              !stateBurger
-                ? style.burgerLine
-                : `${style.burgerLine} ${style.bgLineAnimate2}`
+              !stateBurger ? style.burgerLine : `${style.burgerLine} ${style.bgLineAnimate2}`
             }
           ></div>
           <div
             className={
-              !stateBurger
-                ? style.burgerLine
-                : `${style.burgerLine} ${style.bgLineAnimate3}`
+              !stateBurger ? style.burgerLine : `${style.burgerLine} ${style.bgLineAnimate3}`
             }
           ></div>
         </div>

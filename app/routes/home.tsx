@@ -1,18 +1,18 @@
-import Hero from "@/components/landing/Hero";
-import type { Route } from "./+types/home";
+import Hero from '@/components/landing/Hero';
+import type { Route } from './+types/home';
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: 'New React Router App' },
+    { name: 'description', content: 'Welcome to React Router!' },
   ];
 }
 
 const Home = () => {
   return (
     <div>
-      <Hero/>
+      <Hero />
     </div>
-  )
-}
+  );
+};
 export default Home;

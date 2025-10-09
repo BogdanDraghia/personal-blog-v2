@@ -1,20 +1,22 @@
-import style from "./blogItem.module.css";
-import { Link } from "react-router";
-import type { BlogPost } from "~/types/blog";
+import style from './blogItem.module.css';
+import { Link } from 'react-router';
+import type { BlogPost } from '~/types/blog';
 
-const BlogItem = ({ attributes }: {
-    attributes: {
-        title: string;
-        date: string;
-        excerpt: string;
-        slug: string;
-        thumbnailUrl: string;
-    }
+const BlogItem = ({
+  attributes,
+}: {
+  attributes: {
+    title: string;
+    date: string;
+    excerpt: string;
+    slug: string;
+    thumbnailUrl: string;
+  };
 }) => {
   const formattedDate = new Date(attributes.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   });
 
   return (
@@ -32,9 +34,7 @@ const BlogItem = ({ attributes }: {
           <time dateTime={attributes.date} className={style.blogDate}>
             {formattedDate}
           </time>
-          <p className={style.blogExcerpt}>
-            {attributes.excerpt}
-          </p>
+          <p className={style.blogExcerpt}>{attributes.excerpt}</p>
         </div>
       </article>
     </Link>

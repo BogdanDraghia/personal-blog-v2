@@ -1,8 +1,7 @@
 ## Personal website
 
-Migrate 
-- [ ] Home page 
+Migrate
+
+- [ ] Home page
 - [ ] Blog
 - [ ] Projects
-
-

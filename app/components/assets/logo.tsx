@@ -1,6 +1,6 @@
-import * as React from "react";
-import style from "./assets.module.css";
-import { Link } from "react-router";
+import * as React from 'react';
+import style from './assets.module.css';
+import { Link } from 'react-router';
 const Logo = () => {
   return (
     <Link to="/" className={style.LogoContainer}>

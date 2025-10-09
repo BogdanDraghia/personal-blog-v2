@@ -6,6 +6,8 @@ thumbnailUrl: /images/blog/react-thumbnail.png
 excerpt: Learn how to get started with React development in 2025, including the latest features and best practices.
 ---
 
-# h1 
+# h1
+
 ## H2
+
 ### H3
