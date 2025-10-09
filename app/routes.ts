@@ -4,4 +4,5 @@ export default [
   index('routes/home.tsx'),
   route('/blog', 'routes/blog.tsx'),
   route('/blog/:slug', 'routes/blog.$slug.tsx'),
+  route('/contact', 'routes/contact/contact.tsx'),
 ] satisfies RouteConfig;
