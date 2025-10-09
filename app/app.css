@@ -1,15 +1,242 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  /* @apply bg-white dark:bg-gray-950; */
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  /* @media (prefers-color-scheme: light) {
+    color-scheme: light;
+  } */
+}
+
+
+:root {
+  --box-shadow: rgb(0 0 0 / 4%) 0px 8px 16px, rgb(0 0 0 / 8%) 0px 4px 8px;
+  --box-shadow2: 0px 0px 4px rgba(0, 0, 0, 0.04),
+    0px 4px 8px rgba(0, 0, 0, 0.06);
+  --site-background-light: #f9fafb;
+  --site-background-dark: #101214;
+  /* ELEMENTS */
+  --h1-text-color: #272727;
+  --h1-text-sizeL: 32px;
+  --h1-text-sizeS: 28px;
+  /* COLORS */
+  --accent: #6aa7e8;
+  --white: #ffff;
+  --grey1: #f2f2f2;
+  --grey2: #898b8d;
+  --grey3: #646f79;
+  --grey4: #4b4b4b;
+  --grey5: #646f79;
+  --grey6: #272727;
+  --dark-grey1: #cfd5dd;
+  --dark-grey2: #8796ab;
+  --dark-grey3: #323b48;
+  --dark-grey4:#3a3a3a;
+  --dark-grey5:#0d1117;
+  /* Others */
+  --border1: 20px;
+  --border2: 10px;
+  --moon-color: #ffff;
+  --border-input: 1px solid #f2f2f2;
+}
+
+.lightmode {
+  --codeBlock:var(--dark-grey5);
+  --siteBackground: var(--site-background-light);
+  --moon-color: #ffff;
+  --h1-text-color: var(--grey6);
+  --box-color: var(--white);
+  --navbar-text-color: var(--grey3);
+  --text-color-1: var(--grey6);
+  --text-color-2: var(--grey3);
+  --contact-input: var(--white);
+  --border-input: 1px solid #f2f2f2;
+}
+
+.darkmode {
+  --codeBlock:var(--dark-grey4);
+  --siteBackground: var(--site-background-dark);
+  --moon-color: #f7ec87;
+  --border-input: none;
+  --h1-text-color: var(--white);
+  --box-color: var(--dark-grey3);
+  --contact-input: var(--dark-grey2);
+  --navbar-text-color: var(--white);
+  --text-color-1: var(--white);
+  --text-color-2: var(--grey1);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  color: var(--txt-1);
+  font-display: optional;
+  padding: 0;
+  background-color: var(--siteBackground);
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+}
+
+main {
+  flex: 1 0 auto;
+  justify-content: center;
+  height: 100%;
+  display: flex;
+}
+
+body {
+  display: flex;
+  overflow-y: scroll;
+
+  flex-direction: column;
+  height: 100%;
+}
+
+.preo .centerSection {
+  margin: 0 auto;
+  max-width: calc(100% - 5em);
+  width: 70em;
+}
+
+h1 {
+  font-size: var(--h1-text-sizeL);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+
+code.hljs {
+  padding: 3px 5px
+}
+
+/*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+.hljs {
+  border-radius: var(--border2);
+  color: #c9d1d9;
+  background: var(--codeBlock)
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  color: #ff7b72
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  color: #d2a8ff
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-variable {
+  color: #79c0ff
+}
+
+.hljs-meta .hljs-string,
+.hljs-regexp,
+.hljs-string {
+  color: #a5d6ff
+}
+
+.hljs-built_in,
+.hljs-symbol {
+  color: #ffa657
+}
+
+.hljs-code,
+.hljs-comment,
+.hljs-formula {
+  color: #8b949e
+}
+
+.hljs-name,
+.hljs-quote,
+.hljs-selector-pseudo,
+.hljs-selector-tag {
+  color: #7ee787
+}
+
+.hljs-subst {
+  color: #c9d1d9
+}
+
+.hljs-section {
+  color: #1f6feb;
+  font-weight: 700
+}
+
+.hljs-bullet {
+  color: #f2cc60
+}
+
+.hljs-emphasis {
+  color: #c9d1d9;
+  font-style: italic
+}
+
+.hljs-strong {
+  color: #c9d1d9;
+  font-weight: 700
+}
+
+.hljs-addition {
+  color: #aff5b4;
+  background-color: #033a16
+}
+
+.hljs-deletion {
+  color: #ffdcd7;
+  background-color: #67060c
 }
