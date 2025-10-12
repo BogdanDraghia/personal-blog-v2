@@ -1,5 +1,6 @@
 import type { Route } from './+types/blog';
-
+import BlogItem from '@/components/blog/BlogItem';
+import style from './blog.module.css';
 type PostMod = {
   attributes: { title: string; date: string; slug?: string; excerpt?: string };
   html: string;
@@ -26,18 +27,20 @@ export function loader() {
 
 export default function Blog({ loaderData }: Route.ComponentProps) {
   const { posts } = loaderData;
-
+  console.log(posts);
   return (
     <>
-      <div>Blog Page</div>
-      <div>List:</div>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <a href={`/blog/${post.slug}`}>{post.title}</a>
-          </li>
-        ))}
-      </ul>
+      <div className={style.wrapBlog}>
+        <div className={style.centerSection}>
+          <div className={style.subContentContainer}>
+            <div className={style.postSection}>
+              {posts.map((post, index) => (
+                <BlogItem attributes={post} key={index} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
