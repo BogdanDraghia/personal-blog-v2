@@ -2,7 +2,7 @@
 title: Getting Started with React in 2025
 slug: getting-started-with-react-2025
 date: 2025-10-05
-thumbnailUrl: /images/blog/react-thumbnail.png
+thumbnailUrl: /images/blog/test-image.jpg
 excerpt: Learn how to get started with React development in 2025, including the latest features and best practices.
 ---
 
