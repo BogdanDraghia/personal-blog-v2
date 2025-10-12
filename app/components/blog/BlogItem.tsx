@@ -1,6 +1,5 @@
-import style from './blogItem.module.css';
+import style from '@/routes/blog.module.css';
 import { Link } from 'react-router';
-import type { BlogPost } from '~/types/blog';
 
 const BlogItem = ({
   attributes,
@@ -8,35 +7,31 @@ const BlogItem = ({
   attributes: {
     title: string;
     date: string;
-    excerpt: string;
+    excerpt?: string;
     slug: string;
-    thumbnailUrl: string;
+    thumbnailUrl?: string;
   };
 }) => {
-  const formattedDate = new Date(attributes.date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
   return (
     <Link to={`/blog/${attributes.slug}`}>
-      <article className={style.blogItem}>
+      <div className={style.blogItem}>
         <div className={style.blogItemContent}>
           <div className={style.blogItemImageWrapper}>
             <img
               className={style.blogItemImage}
-              src={attributes.thumbnailUrl}
-              alt={attributes.title}
+              src={attributes.thumbnailUrl || '/images/misc/profile.JPG'}
+              alt="imageblog"
+              // fill
+              style={{
+                objectFit: 'cover',
+              }}
             />
           </div>
-          <h2 className={style.blogTitle}>{attributes.title}</h2>
-          <time dateTime={attributes.date} className={style.blogDate}>
-            {formattedDate}
-          </time>
-          <p className={style.blogExcerpt}>{attributes.excerpt}</p>
+          <h3>{attributes.title}</h3>
+
+          <div>{attributes.excerpt}</div>
         </div>
-      </article>
+      </div>
     </Link>
   );
 };
