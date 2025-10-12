@@ -13,7 +13,7 @@ import type { Route } from './+types/root';
 import './app.css';
 import Footer from '~/components/layout/Footer';
 import Header from './components/layout/Header';
-
+import style from './layout.module.css';
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
@@ -30,7 +30,8 @@ export const links: Route.LinksFunction = () => [
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <Header />
+      <ScrollRestoration />
+      <Scripts />
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -38,11 +39,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
+        <div className={style.expand} style={{ width: '100%', height: '100%' }}>
+          <Header />
+          <main>{children}</main>
+
+          <Footer />
+        </div>
       </body>
-      <Footer />
     </html>
   );
 }
