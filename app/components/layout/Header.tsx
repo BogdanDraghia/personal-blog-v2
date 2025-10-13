@@ -84,7 +84,7 @@ const Header = () => {
           }
         >
           <ul className={`${style.navMenu} ${stateBurger ? style.color1 : style.color2}`}>
-            <AnimatePresence>
+            {/* <AnimatePresence>
               <li className={style.listItem} ref={ref} onClick={() => ToggleButtonDropdown()}>
                 <div className={style.dropdownBlock}>
                   <div>My work</div>
@@ -124,13 +124,16 @@ const Header = () => {
                   <Link to="/illustrations">
                     <li onClick={() => toggleButtonBurger()}>Illustrations</li>
                   </Link>
-                  {/* <li  onClick={() => toggleButtonBurger()}>
-                                        Others
-                                    </li> */}
+                  <li onClick={() => toggleButtonBurger()}>Others</li>
                 </motion.ul>
               </li>
-            </AnimatePresence>
+            </AnimatePresence> */}
 
+            <li onClick={() => toggleButtonBurger()}>
+              <Link to="/projects" className={style.menuText}>
+                Projects
+              </Link>
+            </li>
             <li onClick={() => toggleButtonBurger()}>
               <Link to="/blog" className={style.menuText}>
                 Blog
