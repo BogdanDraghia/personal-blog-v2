@@ -1,7 +1,6 @@
 import style from './hero.module.css';
 import { Link } from 'react-router';
 // ICONS
-import Cv from '@/components/icons/cv';
 import Github from '@/components/icons/github';
 import Instagram from '@/components/icons/instagram';
 import Linkedin from '@/components/icons/linkedin';
@@ -14,16 +13,16 @@ const Hero = () => {
   return (
     <div className={style.heroContainer}>
       <div className={style.contentLeft}>
-        <p>Hello, Im Bogdan</p>
+        <p>Hello, I'm Bogdan</p>
         <h1>Full-stack developer</h1>
         <p>
-          I want to share the knowledge that I have acquired so far and I am willing to learn many
-          new things.
+          5 years finding solutions and adapting systems. Strong in TypeScript, React, AWS, and
+          Linux
         </p>
         <div className={style.buttonGroup}>
           <Link to="/projects">
             <div>
-              <Button text="My work" fill="var(--accent)" colortxt="white" />
+              <Button text="Projects" fill="var(--accent)" colortxt="white" />
             </div>
           </Link>
           <Link to="/contact">
@@ -39,13 +38,13 @@ const Hero = () => {
             <img className={style.ImageHero} src={'images/misc/profile.JPG'} alt="bogdandraghia" />
           </div>
           <div className={style.IconShortcutContainer}>
-            <SvgIconHelper
+            {/* <SvgIconHelper
               name="cv"
               icon={<Cv width="60px" height="60px" />}
               pass={
                 'https://publicviewportfolio.s3.eu-west-3.amazonaws.com/Bogdan-Cristian-Draghia-Resume.pdf'
               }
-            />
+            /> */}
             <SvgIconHelper
               name="Linkedin"
               icon={<Linkedin width="60px" height="60px" />}
