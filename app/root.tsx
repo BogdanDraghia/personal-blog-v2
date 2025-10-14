@@ -14,6 +14,7 @@ import './app.css';
 import Footer from '~/components/layout/Footer';
 import Header from './components/layout/Header';
 import style from './layout.module.css';
+import AlertBar from './components/layout/AlertBuildMode';
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
@@ -40,6 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <div className={style.expand} style={{ width: '100%', height: '100%' }}>
+          <AlertBar />
           <Header />
           <main>{children}</main>
 
