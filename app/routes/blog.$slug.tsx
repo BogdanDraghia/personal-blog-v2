@@ -1,5 +1,6 @@
 import { data } from 'react-router';
 import type { Route } from './+types/blog.$slug';
+import GiscusComponent from '~/components/blog/comments/GiscusComponent';
 
 type PostMod = {
   attributes: { title: string; date: string; slug?: string; excerpt?: string };
@@ -40,6 +41,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
       <h1>{post.attributes.title}</h1>
       <time>{post.attributes.date}</time>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <GiscusComponent />
     </article>
   );
 }
