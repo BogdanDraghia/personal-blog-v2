@@ -19,7 +19,7 @@ const BlogItem = ({
           <div className={style.blogItemImageWrapper}>
             <img
               className={style.blogItemImage}
-              src={attributes.thumbnailUrl || '/images/misc/profile.JPG'}
+              src={attributes.thumbnailUrl || '/images/blog/default-placeholder.png'}
               alt="imageblog"
               // fill
               style={{

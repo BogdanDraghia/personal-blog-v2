@@ -1,0 +1,5 @@
+.tagBox {
+  font-size: 15px;
+  padding: 5px 10px;
+  border-radius: var(--border2);
+}
