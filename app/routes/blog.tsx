@@ -6,15 +6,20 @@ type PostMod = {
   html: string;
 };
 
-const modules = import.meta.glob<PostMod>('../../content/blog/*.md', { eager: true });
+const modules = import.meta.glob<PostMod>('../../content/blog/*.{md,mdx}', { eager: true });
 
 function pathToSlug(p: string) {
-  return (p.split('/').pop() || '').replace(/\.md$/, '');
+  return (p.split('/').pop() || '').replace(/\.(md|mdx)$/, '');
 }
 
-const posts = Object.entries(modules).map(([path, mod]) => {
-  const slug = mod.attributes.slug ?? pathToSlug(path);
-  return { ...mod.attributes, slug };
+const posts = Object.entries(modules).map(([path, mod]: any) => {
+  const fm = mod.frontmatter;
+  const slug = fm.slug ?? pathToSlug(path);
+
+  return {
+    ...fm,
+    slug,
+  };
 });
 
 export function meta() {

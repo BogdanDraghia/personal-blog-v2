@@ -21,9 +21,8 @@ const BlogItem = ({
               className={style.blogItemImage}
               src={attributes.thumbnailUrl || '/images/blog/default-placeholder.png'}
               alt="imageblog"
-              // fill
               style={{
-                objectFit: 'cover',
+                objectFit: 'contain',
               }}
             />
           </div>

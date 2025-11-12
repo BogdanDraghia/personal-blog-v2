@@ -1,111 +1,139 @@
-.blogPost {
-  max-width: 768px;
+.centerSection {
   margin: 0 auto;
-  padding: 2rem 1rem;
+  max-width: calc(100% - 5em);
+  width: 50em;
 }
 
-.header {
-  margin-bottom: 2rem;
-  text-align: center;
+.containerBlogPost {
+  color: var(--h1-text-color);
+  margin: 0 auto;
+  max-width: calc(100% - 5em);
+  width: 50em;
 }
 
-.header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
+.containerBlogPost > * + * {
+  margin-top: 1.5rem;
 }
 
-.header time {
-  color: var(--text-secondary);
-  font-size: 1rem;
+/* MDX content area */
+.mdx :where(p, ul, ol, pre, blockquote, figure) {
+  margin-block: 1rem;
 }
 
-.content {
-  font-size: 1.125rem;
-  line-height: 1.75;
-  color: var(--text-primary);
-}
-
-.content h2 {
-  font-size: 1.875rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-primary);
-}
-
-.content h3 {
-  font-size: 1.5rem;
+.mdx :where(h1, h2, h3, h4) {
+  line-height: 1.25;
   margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
+  margin-bottom: 0.75rem;
 }
 
-.content p {
-  margin-bottom: 1.5rem;
+.mdx h1 {
+  font-size: 1.8rem;
+}
+.mdx h2 {
+  font-size: 1.5rem;
+}
+.mdx h3 {
+  font-size: 1.25rem;
 }
 
-.content a {
-  color: var(--primary);
-  text-decoration: underline;
+.mdx p,
+.mdx li,
+.mdx blockquote {
+  max-width: 70ch;
 }
 
-.content code {
-  background-color: var(--code-bg);
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  font-size: 0.875em;
+.mdx ul,
+.mdx ol {
+  padding-left: 1.25rem;
+}
+.mdx li {
+  margin-top: 0.5em;
 }
 
-.content pre {
-  background-color: var(--code-bg);
-  padding: 1rem;
-  border-radius: 5px;
-  overflow-x: auto;
-  margin: 1.5rem 0;
-}
-
-.content pre code {
-  background-color: transparent;
-  padding: 0;
-  font-size: 0.875rem;
-}
-
-.content img {
-  max-width: 100%;
+.imageBlogPost,
+.mdx img,
+.mdx figure {
+  border-radius: var(--border2);
+  overflow: hidden;
+  width: 100%;
   height: auto;
-  border-radius: 5px;
-  margin: 1.5rem 0;
+  display: block;
+  margin-block: 1.25rem;
+}
+.mdx figcaption {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
 }
 
-.content ul,
-.content ol {
-  margin: 1.5rem 0;
-  padding-left: 2rem;
+.mdx pre {
+  padding: 1rem;
+  border-radius: 10px;
+  overflow: auto;
+}
+.mdx code:not(pre code) {
+  /* inline code */
+  padding: 0.15em 0.35em;
+  border-radius: 6px;
+  background: #f5f5f5;
+  font-size: 0.95em;
 }
 
-.content li {
-  margin-bottom: 0.5rem;
-}
-
-.content blockquote {
-  border-left: 4px solid var(--primary);
+/* Blockquotes & hr */
+.mdx blockquote {
+  border-left: 4px solid #e5e5e5;
   padding-left: 1rem;
-  margin: 1.5rem 0;
-  font-style: italic;
-  color: var(--text-secondary);
+  margin-left: 0;
+  opacity: 0.95;
+}
+.mdx hr {
+  border: none;
+  border-top: 1px solid #eaeaea;
+  margin-block: 2rem;
 }
 
-.error {
-  text-align: center;
-  padding: 4rem 1rem;
+/* Meta/details row */
+.detailsBlogPost {
+  color: var(--h1-text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* allow wrap on small screens */
+  gap: 0.75rem 1rem; /* vertical & horizontal gaps */
+  margin: 1rem 0;
 }
 
-.error h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
+/* Share row */
+.shareSection {
+  display: flex;
+  gap: 0.5rem; /* use gap instead of per-icon margin */
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  background-color: #f2f2f2;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
 }
 
-.error p {
-  color: var(--text-secondary);
+/* Make code figures look tidy */
+.mdx figure[data-rehype-pretty-code-figure] {
+  margin-block: 1rem;
+}
+
+/* Links */
+.mdx a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .centerSection,
+  .containerBlogPost {
+    padding: 0 20px;
+    max-width: none;
+    width: 100%;
+  }
 }
