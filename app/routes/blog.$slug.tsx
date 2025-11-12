@@ -1,46 +1,82 @@
 import { data } from 'react-router';
 import type { Route } from './+types/blog.$slug';
+import * as React from 'react';
+import { MDXProvider } from '@mdx-js/react';
 import GiscusComponent from '~/components/blog/comments/GiscusComponent';
-
-type PostMod = {
-  attributes: { title: string; date: string; slug?: string; excerpt?: string };
-  html: string;
+import style from './blogPost.module.css';
+type Frontmatter = {
+  title: string;
+  date: string;
+  slug?: string;
+  excerpt?: string;
+  coverUrl?: string;
 };
 
-const postModules = import.meta.glob<PostMod>('../../content/blog/*.md', { eager: true });
+type MdxModule = {
+  default: React.ComponentType<any>;
+  frontmatter?: Frontmatter;
+};
 
-export function meta({ data }: Route.MetaArgs) {
-  if (!data) return [{ title: 'Post Not Found' }];
+const postsModules = import.meta.glob<MdxModule>('../../content/blog/*.{md,mdx}', {
+  eager: true,
+});
 
-  return [
-    { title: `${data.post.attributes.title} | Blog` },
-    { name: 'description', content: data.post.attributes.excerpt || '' },
-  ];
+function pathToSlug(p: string) {
+  return (p.split('/').pop() || '').replace(/\.(md|mdx)$/, '');
 }
 
 export function loader({ params }: Route.LoaderArgs) {
   const { slug } = params;
 
-  const post = Object.entries(postModules).find(([path, mod]) => {
-    const fileSlug = mod.attributes.slug ?? path.split('/').pop()?.replace(/\.md$/, '');
+  const match = Object.entries(postsModules).find(([path, mod]: any) => {
+    const fm = mod.frontmatter ?? {};
+    const fileSlug = fm.slug ?? pathToSlug(path);
     return fileSlug === slug;
   });
 
-  if (!post) {
+  if (!match) {
     throw data({ message: 'Post not found' }, { status: 404 });
   }
 
-  return { post: post[1] };
+  const [path, mod] = match;
+
+  return {
+    path,
+    frontmatter: mod.frontmatter ?? {},
+  };
+}
+
+export function meta({ loaderData }: Route.MetaArgs) {
+  if (!loaderData) return [{ title: 'Post Not Found' }];
+  const f = loaderData.frontmatter as Frontmatter;
+  return [
+    { title: `${f.title ?? 'Post'} | Blog` },
+    { name: 'description', content: f.excerpt ?? '' },
+  ];
 }
 
 export default function BlogPost({ loaderData }: Route.ComponentProps) {
-  const { post } = loaderData;
+  const { path, frontmatter } = loaderData as {
+    path: string;
+    frontmatter: Frontmatter;
+  };
 
+  const mod = postsModules[path] as MdxModule | undefined;
+  const Component = mod?.default;
+
+  if (!Component) {
+    return <article className="prose mx-auto">Post component not found.</article>;
+  }
+  console.log('frontmatter', frontmatter);
   return (
-    <article className="prose mx-auto">
-      <h1>{post.attributes.title}</h1>
-      <time>{post.attributes.date}</time>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+    <article className={`${style.containerBlogPost} ${style.mdx}`}>
+      <div>
+        <img src={frontmatter.coverUrl} alt="blog cover image" />
+      </div>
+      <h1>{frontmatter.title}</h1>
+      <MDXProvider>
+        <Component />
+      </MDXProvider>
       <GiscusComponent />
     </article>
   );
