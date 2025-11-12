@@ -1,0 +1,164 @@
+---
+title: Run Docker in Windows WSL Without Docker Desktop + VsCode Config
+slug: docker-wsl
+date: 2023-03-26
+thumbnailUrl: /images/blog/docker-wsl/docker-wsl-thumbnail.jpg
+coverUrl: /images/blog/docker-wsl/docker-wsl-cover.jpg
+excerpt: Learn how to run Docker engine inside WSL2 without Docker Desktop, including VsCode configuration for a better development experience.
+---
+
+This post is not up to date.
+
+Docker Desktop on Windows has received complaints about its interface, forced updates that sometimes cause bugs requiring complete reinstallation, and its new subscription model. However, we can solve these issues by running the Docker engine inside WSL2 (the Windows Subsystem for Linux v2).
+
+**Requirements**
+
+- Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11
+- Nice to have: Windows Terminal
+
+**Before we start, make sure you have saved your Docker work and volumes. We will uninstall Docker Desktop completely.**
+
+## Uninstall Docker Desktop
+
+Remove Docker via the control panel or Apps > Installed apps. If you used WSL with Docker Desktop, two Docker Desktop instances to unregister will appear. Use the following commands:
+
+```bash
+wsl --unregister docker-desktop-data
+wsl --unregister docker-desktop
+```
+
+## Install Ubuntu on WSL2
+
+Open the Microsoft Store app and search for Ubuntu. Choose the latest distribution version and install it. Once installed, launch Ubuntu from your Windows search bar. Enter a username and password. This will create a local user account, and you will be automatically logged in to Ubuntu as this user.
+
+It's good practice to install the latest updates by executing this command:
+
+```bash
+sudo apt update && sudo apt upgrade
+```
+
+## Install Docker on Ubuntu WSL2
+
+For detailed instructions, check the [Docker engine install on Ubuntu](https://docs.docker.com/engine/install/ubuntu/) guide.
+
+```bash
+sudo apt-get update
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/etc/apt/keyrings/docker.gpg] \
+  https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+We will install the latest available Docker engine version:
+
+```bash
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
+
+WSL instances by default don't support systemd, so we will run Docker by executing the dockerd daemon:
+
+```bash
+sudo dockerd
+```
+
+In another terminal, we will test that we installed Docker correctly by executing:
+
+```bash
+docker ps
+```
+
+If we terminate the `sudo dockerd` process terminal, the engine will stop, along with the containers. We can fix this by being more proactive. If you only use WSL for Docker, add the following configuration to your preferred shell configuration (`~/.bashrc`, `~/.zshrc`, or `~/.config/fish/config.fish`), and modify as needed:
+
+```bash
+# Thanks to @matigo https://askubuntu.com/a/1375570
+# Start Docker (if not already running)
+RUNNING=`ps aux | grep dockerd | grep -v grep`
+if [ -z "$RUNNING" ]; then
+    sudo dockerd > /dev/null 2>&1 &
+    disown
+fi
+```
+
+However, I find myself developing inside WSL without needing to run Docker, so I have this configuration for my setup that will start or stop (terminate) the Docker engine.
+
+Filename: `dockerun`
+
+```bash
+#!/bin/bash
+GREEN="\033[0;32m"
+RED="\033[31m"
+NC="\033[0m"
+
+# In order to use as command
+# Execute:
+#
+# chmod 755 dockerun && mv dockerun /usr/bin/
+#
+
+DRUN=`ps aux | grep dockerd | grep -v grep`
+if [ -z "$DRUN" ]; then
+  echo -e "[${RED}x${NC}] Docker is not running"
+  echo -n "Do you want to run Docker (y/n)? "
+  read answer
+    if [ "$answer" != "${answer#[Yy]}" ] ; then
+      echo "Proceeding to start Docker"
+      sudo dockerd > /dev/null 2>&1 &
+      disown
+    else
+      echo "Selected no, closing..."
+      exit 1
+    fi
+else
+  echo -e "[${GREEN}✓${NC}] Docker is running"
+  echo -n "Do you want to stop Docker (y/n)? "
+  read answer
+    if [ "$answer" != "${answer#[Yy]}" ] ; then
+      echo "Proceeding to stop Docker..."
+      sudo pkill -f docker
+    else
+      echo "Selected no, closing..."
+      exit 1
+    fi
+fi
+```
+
+## Configure VsCode to Work with Docker WSL2
+
+To solve the VS Code problem with not finding Docker on your system, follow these steps:
+
+Add the following configuration to your user settings (JSON):
+
+```json
+{
+  "remote.localPortHost": "allInterfaces",
+  "dev.containers.executeInWSL": true,
+  "dev.containers.executeInWSLDistro": "Ubuntu-22.04",
+  "docker.host": "unix:///var/run/docker.sock"
+}
+```
+
+**Important!** Replace "Ubuntu" with the name of your installed distribution; the following PowerShell command should display your distribution name:
+
+```powershell
+wsl --list --verbose
+```
+
+In my case, it was Ubuntu-22.04 rather than Ubuntu, which resulted in the error "command failed -d Ubuntu -e wslpath -u".
+
+## Conclusion
+
+After moving to Docker inside WSL, my projects run better, use less RAM, and I have more direct control. Although Docker Desktop is sufficient and simpler for the majority of people, you decide!
+
+## Thank you for reading!
+
+Don't hesitate to contact me if you have any questions regarding this implementation, errors, and more.
