@@ -6,8 +6,8 @@ import Instagram from '@/components/icons/instagram';
 import Linkedin from '@/components/icons/linkedin';
 
 // ASSETS
-import Button from '../Button/Button';
-import SvgIconHelper from '@/components/helpers/SvgIconHelper';
+import Button from '@ui/Button';
+import SvgIcon from '@/components/helpers/SvgIcon';
 
 const Hero = () => {
   return (
@@ -15,20 +15,12 @@ const Hero = () => {
       <div className={style.contentLeft}>
         <p>Hello, I'm Bogdan</p>
         <h1>Full-stack developer</h1>
-        <p>
-          5 years finding solutions and adapting systems. Strong in TypeScript, React, AWS, and
-          Linux
-        </p>
         <div className={style.buttonGroup}>
-          <Link to="/projects">
-            <div>
-              <Button text="Projects" fill="var(--accent)" colortxt="white" />
-            </div>
+          <Link to="/blog">
+            <Button text="Blog" fill="var(--accent)" colortxt="white" />
           </Link>
           <Link to="/contact">
-            <div>
-              <Button text="Contact" hover={false} colortxt="var(--accent)" />
-            </div>
+            <Button text="Contact" hover={false} colortxt="var(--accent)" />
           </Link>
         </div>
       </div>
@@ -45,20 +37,20 @@ const Hero = () => {
                 'https://publicviewportfolio.s3.eu-west-3.amazonaws.com/Bogdan-Cristian-Draghia-Resume.pdf'
               }
             /> */}
-            <SvgIconHelper
+            <SvgIcon
               name="Linkedin"
               icon={<Linkedin width="60px" height="60px" />}
-              pass={'https://www.linkedin.com/in/bogdandraghia/'}
+              link={'https://www.linkedin.com/in/bogdandraghia/'}
             />
-            <SvgIconHelper
+            <SvgIcon
               name="github"
               icon={<Github width="60px" height="60px" />}
-              pass={'https://github.com/bogdandraghia'}
+              link={'https://github.com/bogdandraghia'}
             />
-            <SvgIconHelper
+            <SvgIcon
               name="Instagram"
               icon={<Instagram width="60px" height="60px" />}
-              pass={'https://www.instagram.com/bogdan_draghia/'}
+              link={'https://www.instagram.com/bogdan_draghia/'}
             />
           </div>
         </div>

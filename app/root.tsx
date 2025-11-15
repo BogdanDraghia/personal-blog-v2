@@ -14,7 +14,7 @@ import './app.css';
 import Footer from '~/components/layout/Footer';
 import Header from './components/layout/Header';
 import style from './layout.module.css';
-import AlertBar from './components/layout/AlertBuildMode';
+import Banner from '@ui/Banner';
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
@@ -41,10 +41,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <div className={style.expand} style={{ width: '100%', height: '100%' }}>
-          <AlertBar />
+          <Banner>
+            <strong>Work in progress:</strong>&nbsp;I'm migrating this site from Next.js to React
+            Router v7 and TypeScript.asds
+          </Banner>
           <Header />
           <main>{children}</main>
-
           <Footer />
         </div>
       </body>

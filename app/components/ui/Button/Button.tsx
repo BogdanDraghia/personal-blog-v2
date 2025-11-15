@@ -1,28 +1,25 @@
 import { m } from 'framer-motion';
-import style from './button.module.css';
+import style from './Button.module.css';
+import type { ButtonHTMLAttributes } from 'react';
 
-const Button = ({
-  text,
-  fill,
-  colortxt,
-  hover = true,
-  styles,
-}: {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   colortxt: string;
   hover?: boolean;
   fill?: string;
   styles?: React.CSSProperties;
-}) => {
+}
+
+const Button = ({ text, fill, colortxt, hover = true, styles }: ButtonProps) => {
   return (
-    <m.div
-      whileTap={hover ? { scale: 0.99 } : ''}
+    <m.button
+      whileTap={hover ? { scale: 1 } : ''}
       whileHover={hover ? { scale: 1.05 } : ''}
       className={style.button}
       style={{ ...styles, backgroundColor: fill, color: colortxt }}
     >
       {text}
-    </m.div>
+    </m.button>
   );
 };
 
