@@ -5,6 +5,7 @@
   width: 150px;
   text-align: center;
   border: none;
+  background: none;
   cursor: pointer;
   border-radius: var(--border2);
 }
