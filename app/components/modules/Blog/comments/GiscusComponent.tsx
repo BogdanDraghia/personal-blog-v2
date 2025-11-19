@@ -4,7 +4,38 @@ import { useLocation } from 'react-router';
 const GiscusComponent = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { pathname } = useLocation();
+  const getCurrentTheme = () => {
+    return localStorage.getItem('theme') === 'darkmode' ? 'dark' : 'light';
+  };
 
+  const changeGiscusTheme = (theme: string) => {
+    const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
+    if (iframe) {
+      iframe.contentWindow?.postMessage(
+        {
+          giscus: {
+            setConfig: {
+              theme: theme,
+            },
+          },
+        },
+        'https://giscus.app'
+      );
+    }
+  };
+
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      const newTheme = getCurrentTheme();
+      changeGiscusTheme(newTheme);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://giscus.app/client.js';
@@ -19,7 +50,7 @@ const GiscusComponent = () => {
     script.setAttribute('data-reactions-enabled', '1');
     script.setAttribute('data-emit-metadata', '0');
     script.setAttribute('data-input-position', 'bottom');
-    script.setAttribute('data-theme', 'preferred_color_scheme');
+    script.setAttribute('data-theme', getCurrentTheme());
     script.setAttribute('data-lang', 'en');
     script.setAttribute('crossorigin', 'anonymous');
 

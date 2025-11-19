@@ -64,10 +64,12 @@ const Header = () => {
       document.body.classList.remove('lightmode');
       document.body.classList.add('darkmode');
       window.localStorage.setItem('theme', 'darkmode');
+      window.dispatchEvent(new Event('storage'));
     } else {
       document.body.classList.remove('darkmode');
       document.body.classList.add('lightmode');
       window.localStorage.setItem('theme', 'lightmode');
+      window.dispatchEvent(new Event('storage'));
     }
     setChangeTheme(!changeTheme);
   };
