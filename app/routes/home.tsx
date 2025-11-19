@@ -6,10 +6,6 @@ export function meta({}: Route.MetaArgs) {
 }
 
 const Home = () => {
-  return (
-    <div>
-      <Hero />
-    </div>
-  );
+  return <Hero />;
 };
 export default Home;
