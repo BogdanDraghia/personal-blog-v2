@@ -10,6 +10,12 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import rehypeSlug from 'rehype-slug';
 import rehypePrettyCode from 'rehype-pretty-code';
+
+const rehypeOptions = {
+  theme: 'github-dark',
+  grid: true,
+};
+
 export default defineConfig({
   plugins: [
     tailwindcss(),
@@ -20,7 +26,7 @@ export default defineConfig({
         remarkFrontmatter,
         [remarkMdxFrontmatter, { name: 'frontmatter' }],
       ],
-      rehypePlugins: [rehypeSlug, [rehypePrettyCode, { theme: 'github-dark' }]],
+      rehypePlugins: [rehypeSlug, [rehypePrettyCode, rehypeOptions]],
     }),
     reactRouter(),
     tsconfigPaths(),
