@@ -1,7 +1,7 @@
 .center-section {
   /* padding-top: 50px; */
   color: var(--h1-text-color);
-  margin: 0 auto;
+  margin: 40px auto;
   max-width: calc(100% - 5em);
   width: 70em;
 }

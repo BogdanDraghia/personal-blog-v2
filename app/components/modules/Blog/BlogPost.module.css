@@ -7,7 +7,10 @@
 
 .containerBlogPost {
   margin-top: 40px;
-  width: 100%;
+  color: var(--h1-text-color);
+  margin: 0 auto;
+  max-width: calc(100% - 5em);
+  width: 50em;
 }
 .blogPostImage {
   border-radius: var(--border1);
@@ -27,7 +30,7 @@
 }
 .mdx figure[data-rehype-pretty-code-figure] pre {
   padding: 15px;
-  border-radius: 5px;
+  border-radius: var(--border2);
 }
 
 .mdx figure[data-rehype-pretty-code-figure] {
@@ -42,4 +45,7 @@
 .mdx figure[data-rehype-pretty-code-figure] code {
   display: grid;
   min-width: 100%;
+}
+.mdx > * {
+  line-height: 1.5;
 }
