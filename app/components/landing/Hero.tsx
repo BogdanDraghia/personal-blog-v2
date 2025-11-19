@@ -30,13 +30,6 @@ const Hero = () => {
             <img className={style.ImageHero} src={'images/misc/profile.JPG'} alt="bogdandraghia" />
           </div>
           <div className={style.IconShortcutContainer}>
-            {/* <SvgIconHelper
-              name="cv"
-              icon={<Cv width="60px" height="60px" />}
-              pass={
-                'https://publicviewportfolio.s3.eu-west-3.amazonaws.com/Bogdan-Cristian-Draghia-Resume.pdf'
-              }
-            /> */}
             <SvgIcon
               name="Linkedin"
               icon={<Linkedin width="60px" height="60px" />}
