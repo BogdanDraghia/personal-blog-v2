@@ -1,0 +1,45 @@
+.postSection {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.containerBlogPost {
+  margin-top: 40px;
+  width: 100%;
+}
+.blogPostImage {
+  border-radius: var(--border1);
+  overflow: hidden;
+  width: 100%;
+  height: fit-content;
+  height: 300px;
+}
+.blogPostImage > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mdx figure[data-rehype-pretty-code-figure] {
+  margin: 0px;
+}
+.mdx figure[data-rehype-pretty-code-figure] pre {
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.mdx figure[data-rehype-pretty-code-figure] {
+  overflow-x: auto;
+}
+
+.mdx figure[data-rehype-pretty-code-figure] pre {
+  overflow-x: auto;
+  min-width: 100%;
+}
+
+.mdx figure[data-rehype-pretty-code-figure] code {
+  display: grid;
+  min-width: 100%;
+}
