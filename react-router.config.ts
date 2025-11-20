@@ -8,6 +8,6 @@ export default {
     const files = await fg('content/blog/*.mdx');
     const slugs = files.map((f) => `/blog/${path.basename(f, '.mdx')}`);
     console.log('Prerendering slugs:', slugs);
-    return ['/', '/blog', '/contact', ...slugs];
+    return ['/', '/blog/', '/contact', ...slugs];
   },
 } satisfies Config;
