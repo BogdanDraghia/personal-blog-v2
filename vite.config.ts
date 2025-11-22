@@ -17,6 +17,9 @@ const rehypeOptions = {
 };
 
 export default defineConfig({
+  build: {
+    assetsDir: 'assets',
+  },
   plugins: [
     tailwindcss(),
     mdx({
