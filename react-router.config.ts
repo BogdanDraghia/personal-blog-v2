@@ -4,10 +4,12 @@ import fg from 'fast-glob';
 
 export default {
   ssr: false,
-  async prerender() {
+  async prerender({ getStaticPaths }) {
+    const staticPaths = getStaticPaths();
+
     const files = await fg('content/blog/*.mdx');
     const slugs = files.map((f) => `/blog/${path.basename(f, '.mdx')}`);
-    console.log('Prerendering slugs:', slugs);
-    return ['/blog', '/contact', ...slugs];
+
+    return [...staticPaths, '/contact', ...slugs];
   },
 } satisfies Config;
