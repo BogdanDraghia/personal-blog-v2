@@ -4,7 +4,9 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
+.containerBlogPost > h1 {
+  margin: 0.5em 0px;
+}
 .containerBlogPost {
   margin-top: 40px;
   color: var(--h1-text-color);
@@ -26,7 +28,7 @@
 }
 
 .mdx figure[data-rehype-pretty-code-figure] {
-  margin: 0px;
+  margin-bottom: 20px;
 }
 .mdx figure[data-rehype-pretty-code-figure] pre {
   padding: 15px;
@@ -48,4 +50,19 @@
 }
 .mdx > * {
   line-height: 1.5;
+}
+
+.mdx > p {
+  margin-bottom: 1.25em;
+}
+.mdx > ul {
+  margin-bottom: 1.25em;
+}
+
+.mdx > h1,
+h2 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.mdx {
 }
