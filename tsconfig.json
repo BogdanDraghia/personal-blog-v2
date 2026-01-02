@@ -12,7 +12,8 @@
     "paths": {
       "~/*": ["./app/*"],
       "@/*": ["./app/*"],
-      "@ui/*": ["./app/components/ui/*"]
+      "@ui/*": ["./app/components/ui/*"],
+      "@content/*": ["./content/*"]
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,

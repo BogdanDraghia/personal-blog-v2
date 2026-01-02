@@ -1,0 +1,35 @@
+{
+  "tags": [
+    {
+      "name": "NextJS",
+      "color": "#4D3978"
+    },
+    {
+      "name": "IoT",
+      "color": "#6ACE92"
+    },
+    {
+      "name": "AWS",
+      "color": "#FF9900"
+    },
+    {
+      "name": "React",
+      "color": "#61DBFB"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Digital twin - Proof of concept",
+      "thumbnail": "/images/projects/pipes/pipes.png",
+      "content": "A digital twin using Three.js, AWS IoT, React to visualize and monitor a water system in real time.",
+      "tags": ["IoT", "AWS", "React", "3D"],
+      "links": [
+        {
+          "label": "Github",
+          "url": "https://github.com/BogdanDraghia/digital-twin-WaterSystem",
+          "target": "_blank"
+        }
+      ]
+    }
+  ]
+}

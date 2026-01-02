@@ -17,10 +17,10 @@ const Hero = () => {
         <h1>Full-stack developer</h1>
         <div className={style.buttonGroup}>
           <Link to="/blog">
-            <Button text="Blog" fill="var(--accent)" colortxt="white" />
+            <Button text="Blog" />
           </Link>
           <Link to="/contact">
-            <Button text="Contact" hover={false} colortxt="var(--accent)" />
+            <Button text="Contact" variant={'secondary'} />
           </Link>
         </div>
       </div>

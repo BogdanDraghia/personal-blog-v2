@@ -5,7 +5,32 @@
   width: 150px;
   text-align: center;
   border: none;
-  background: none;
   cursor: pointer;
   border-radius: var(--border2);
+  transition: all 0.2s ease;
+  height: fit-content;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+}
+
+.primary {
+  background-color: var(--accent);
+  color: white;
+}
+.secondary {
+  background-color: transparent;
+  color: var(--accent);
+}
+.outline {
+  border-color: var(--accent);
+  background-color: transparent;
+  color: var(--accent);
+}
+
+.button:hover {
+  transform: scale(1.01);
+}
+
+.button:active {
+  transform: scale(0.98);
 }

@@ -59,9 +59,14 @@
 }
 
 *,
-:after,
-:before {
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  line-height: inherit;
 }
 
 html,

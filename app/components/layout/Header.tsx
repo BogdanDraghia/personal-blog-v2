@@ -131,11 +131,11 @@ const Header = () => {
               </li>
             </AnimatePresence> */}
 
-            {/* <li onClick={() => toggleButtonBurger()}>
+            <li onClick={() => toggleButtonBurger()}>
               <Link to="/projects" className={style.menuText}>
                 Projects
               </Link>
-            </li> */}
+            </li>
             <li onClick={() => toggleButtonBurger()}>
               <Link to="/blog" className={style.menuText}>
                 Blog

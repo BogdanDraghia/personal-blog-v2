@@ -1,9 +1,0 @@
-.tagBoxFilter {
-  cursor: pointer;
-  position: relative;
-  margin: 5px;
-  color: var(--white);
-  font-size: 18px;
-  padding: 10px 15px;
-  border-radius: var(--border2);
-}
