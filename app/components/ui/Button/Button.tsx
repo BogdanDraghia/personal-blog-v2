@@ -1,25 +1,33 @@
-import { m } from 'framer-motion';
 import style from './Button.module.css';
-import type { ButtonHTMLAttributes } from 'react';
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+// <Button text={'hello'} href="https://google.com" target="_blank" />
+// <Button text={'hello'} variant={'outline'} href="https://google.com" target="_blank" />
+// <Button text={'hello'} variant={'secondary'} href="https://google.com" target="_blank" />
+
+interface ButtonProps
+  extends Partial<
+    ButtonHTMLAttributes<HTMLButtonElement> & AnchorHTMLAttributes<HTMLAnchorElement>
+  > {
   text: string;
-  colortxt: string;
+  variant?: 'primary' | 'secondary' | 'outline';
   hover?: boolean;
-  fill?: string;
-  styles?: React.CSSProperties;
 }
 
-const Button = ({ text, fill, colortxt, hover = true, styles }: ButtonProps) => {
+const Button = ({
+  text,
+  variant = 'primary',
+  hover = true,
+  href,
+  className = '',
+  ...props
+}: ButtonProps) => {
+  const Component = href ? 'a' : 'button';
+
   return (
-    <m.button
-      whileTap={hover ? { scale: 1 } : ''}
-      whileHover={hover ? { scale: 1.05 } : ''}
-      className={style.button}
-      style={{ ...styles, backgroundColor: fill, color: colortxt }}
-    >
+    <Component href={href} className={`${style.button} ${style[variant]} ${className}`} {...props}>
       {text}
-    </m.button>
+    </Component>
   );
 };
 
