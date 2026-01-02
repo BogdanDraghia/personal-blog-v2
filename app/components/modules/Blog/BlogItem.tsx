@@ -17,7 +17,7 @@ const BlogItem = ({ title, date, excerpt, slug, thumbnailUrl }: BlogItemProps) =
           <div className={style.blogItemImageWrapper}>
             <img
               className={style.blogItemImage}
-              src={thumbnailUrl || '/images/blog/default-placeholder.png'}
+              src={thumbnailUrl || '/images/misc/default-placeholder.png'}
               alt="imageblog"
               style={{
                 objectFit: 'contain',
