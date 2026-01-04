@@ -1,0 +1,35 @@
+.illustrationItem {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  width: 275px;
+  height: 275px;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  margin: 15px;
+  box-shadow: var(--box-shadow2);
+}
+
+.dotsOpen {
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  position: absolute;
+  right: 0;
+  margin: 10px;
+}
+.dotsOpen > * {
+  box-shadow: var(--box-shadow2);
+
+  width: 7px;
+  border-radius: 50%;
+  margin: 2px;
+  height: 7px;
+  background-color: #ffffff;
+}
+
+.illustrationItem > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
