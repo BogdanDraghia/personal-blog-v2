@@ -16,7 +16,7 @@
 /* NAVBAR */
 
 .logo {
-  z-index: 200;
+  z-index: 55;
   color: var(--accent);
   max-width: 100px;
 }
@@ -82,7 +82,7 @@
   align-self: flex-start;
   box-shadow: var(--box-shadow);
   margin-top: 35px;
-  z-index: 200;
+  z-index: 55;
   border-radius: var(--border2);
   padding: 0px;
   overflow: hidden;
@@ -249,7 +249,7 @@ x .center {
     display: flex;
   }
   .burgerMenu {
-    z-index: 200;
+    z-index: 55;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
