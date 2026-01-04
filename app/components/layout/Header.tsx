@@ -130,7 +130,11 @@ const Header = () => {
                 </motion.ul>
               </li>
             </AnimatePresence> */}
-
+            <li onClick={() => toggleButtonBurger()}>
+              <Link to="/illustrations" className={style.menuText}>
+                Illustrations
+              </Link>
+            </li>
             <li onClick={() => toggleButtonBurger()}>
               <Link to="/projects" className={style.menuText}>
                 Projects
