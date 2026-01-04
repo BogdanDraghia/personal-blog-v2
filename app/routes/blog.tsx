@@ -17,5 +17,10 @@ export function loader() {
 export default function Blog({ loaderData }: Route.MetaArgs) {
   const { posts } = loaderData;
 
-  return <BlogList posts={posts} />;
+  return (
+    <div className="content">
+      <h1>Blog</h1>
+      <BlogList posts={posts} />
+    </div>
+  );
 }
