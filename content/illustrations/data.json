@@ -1,0 +1,143 @@
+[
+  {
+    "id": "person-desk-headphones",
+    "title": "Person Desk Headphones",
+    "dominantColor": "#7997F2",
+    "palette": ["#7997F2", "#DCE8F2", "#7EBF8E", "#F2A766"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/person_desk_headphones/person_desk_headphones_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/person_desk_headphones/person_desk_headphones_large.jpg"
+    }
+  },
+  {
+    "id": "dog",
+    "title": "Dog",
+    "dominantColor": "#8C6164",
+    "palette": ["#8C6164", "#BF8FAF", "#BF8C60", "#594031"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/dog/dog_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/dog/dog_large.jpg"
+    }
+  },
+  {
+    "id": "dutch-house",
+    "title": "Dutch House",
+    "dominantColor": "#8b4513",
+    "palette": ["#F24150", "#73495D", "#A62424", "#03A678"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/dutch-house/dutch-house_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/dutch-house/dutch-house_large.jpg"
+    }
+  },
+  {
+    "id": "tulips",
+    "title": "Tulips",
+    "dominantColor": "#F2808A",
+    "palette": ["#F2808A", "#D95B72", "#75BF8F", "#F2ACAC"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/tulips/tulips_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/tulips/tulips_large.jpg"
+    }
+  },
+  {
+    "id": "icons-set",
+    "title": "Icons Set",
+    "dominantColor": "#4C6873",
+    "palette": ["#F0F1F2", "#4C6873", "#7EDDF2", "#8EBF91"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/icons_set/icons_set_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/icons_set/icons_set_large.jpg"
+    }
+  },
+  {
+    "id": "eco-park",
+    "title": "Eco Park",
+    "dominantColor": "#88ABF2",
+    "palette": ["#88ABF2", "#06BF8B", "#B8BF80", "#F2D06B"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/eco_park/eco_park_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/eco_park/eco_park_large.jpg"
+    }
+  },
+  {
+    "id": "lighthouse",
+    "title": "Lighthouse",
+    "dominantColor": "#F24484",
+    "palette": ["#F24484", "#F29BBB", "#590A2F", "#8C3775"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/lighthouse/lighthouse_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/lighthouse/lighthouse_large.jpg"
+    }
+  },
+  {
+    "id": "bonsai",
+    "title": "Bonsai Tree",
+    "dominantColor": "#A4BF7A",
+    "palette": ["#A4BF7A", "#C0D99C", "#D99C79", "#F2CCB6"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/bonsai/bonsai_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/bonsai/bonsai_large.jpg"
+    }
+  },
+  {
+    "id": "banana",
+    "title": "Banana",
+    "dominantColor": "#F2BB13",
+    "palette": ["#F2BB13", "#D9A711", "#D98841", "#733F2C"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/banana/banana_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/banana/banana_large.jpg"
+    }
+  },
+  {
+    "id": "shoe-shop",
+    "title": "Shoe Shop",
+    "dominantColor": "#51768C",
+    "palette": ["#51768C", "#F2A03D", "#8C4535", "#D98484"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/shoe_shop/shoe_shop_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/shoe_shop/shoe_shop_large.jpg"
+    }
+  },
+  {
+    "id": "printer",
+    "title": "Printer",
+    "dominantColor": "#344859",
+    "palette": ["#344859", "#6F8CA6", "#E4EDF2", "#8EBF91"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/printer/printer_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/printer/printer_large.jpg"
+    }
+  },
+  {
+    "id": "dog-cookies",
+    "title": "Dog Cookies",
+    "dominantColor": "#F0F2F2",
+    "palette": ["#F0F2F2", "#A6681C", "#F2D0A7", "#733B27"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/dog_cookies/dog_cookies_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/dog_cookies/dog_cookies_large.jpg"
+    }
+  },
+
+  {
+    "id": "reyes-magos",
+    "title": "Reyes Magos",
+    "dominantColor": "#F25C69",
+    "palette": ["#F25C69", "#4B89BF", "#50BF80", "#F2B138"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/reyes_magos/reyes_magos_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/reyes_magos/reyes_magos_large.jpg"
+    }
+  },
+  {
+    "id": "gun",
+    "title": "Gun",
+    "dominantColor": "#8F99A6",
+    "palette": ["#8F99A6", "#697C8C", "#5F6A73", "#F2CB9B"],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/gun/gun_large.jpg",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/gun/gun_large.jpg"
+    }
+  }
+]

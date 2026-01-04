@@ -5,6 +5,12 @@
   width: 70em;
 }
 
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 @media (max-width: 768px) {
   .center-section {
     width: 100%;
