@@ -17,6 +17,7 @@
 .projectItemImageWrap {
   width: 250px;
   min-width: 250px;
+  height: 100%;
   aspect-ratio: 1;
   position: relative;
   border-radius: var(--border2);
@@ -49,10 +50,11 @@
 }
 
 .pItemInfo > p {
-  margin-block: 16px;
+  margin-block: 10px;
 }
 
 .projectItemLinks {
+  gap: 10px;
   display: flex;
   flex-direction: row;
 }
