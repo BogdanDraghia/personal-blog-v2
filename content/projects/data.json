@@ -1,6 +1,22 @@
 {
   "tags": [
     {
+      "name": "TypeScript",
+      "color": "#3178C6"
+    },
+    {
+      "name": "Hardware",
+      "color": "#E34F26"
+    },
+    {
+      "name": "C++",
+      "color": "#00599C"
+    },
+    {
+      "name": "MQTT",
+      "color": "#660066"
+    },
+    {
       "name": "NextJS",
       "color": "#4D3978"
     },
@@ -15,14 +31,36 @@
     {
       "name": "React",
       "color": "#61DBFB"
+    },
+    {
+      "name": "CDK",
+      "color": "#232F3E"
     }
   ],
   "projects": [
     {
+      "title": "Winter Light - IoT Control System",
+      "thumbnail": "/images/projects/dutch-house/dutch-house.png",
+      "content": "A lighting RGB system built inside a miniature Dutch canal house. Each floor has its own NeoPixel ring wired to an ESP32 C3, controlled in real-time through a React web app using AWS IoT and MQTT5.",
+      "tags": ["IoT", "AWS", "React", "TypeScript", "MQTT", "C++", "Hardware", "CDK"],
+      "links": [
+        {
+          "label": "Github",
+          "url": "https://github.com/BogdanDraghia/winter-light-switch-iot",
+          "target": "_blank"
+        },
+        {
+          "label": "Demo",
+          "url": "https://bogdandraghia.com/demo/winter-lights/",
+          "target": "_blank"
+        }
+      ]
+    },
+    {
       "title": "Digital twin - Proof of concept",
       "thumbnail": "/images/projects/pipes/pipes.png",
       "content": "A digital twin using Three.js, AWS IoT, React to visualize and monitor a water system in real time.",
-      "tags": ["IoT", "AWS", "React", "3D"],
+      "tags": ["IoT", "AWS", "React", "Three.js", "TypeScript", "CDK"],
       "links": [
         {
           "label": "Github",
