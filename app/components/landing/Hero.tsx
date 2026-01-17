@@ -16,8 +16,8 @@ const Hero = () => {
         <p>Hello, I'm Bogdan</p>
         <h1>Full-stack developer</h1>
         <div className={style.buttonGroup}>
-          <Link to="/blog">
-            <Button text="Blog" />
+          <Link to="/Projects">
+            <Button text="Projects" />
           </Link>
           <Link to="/contact">
             <Button text="Contact" variant={'secondary'} />
