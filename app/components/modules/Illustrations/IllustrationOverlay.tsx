@@ -35,7 +35,9 @@ const IllustrationOverlay = ({ isOpen, onClose, illustration }: IllustrationOver
             <img src={illustration.variations.large} alt={illustration.title} loading="lazy" />
           </div>
 
-          <ColorPalette colors={illustration.palette} />
+          {illustration.palette && illustration.palette.length > 0 && (
+            <ColorPalette colors={illustration.palette} />
+          )}
         </Content>
       </Portal>
     </Root>
