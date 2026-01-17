@@ -70,6 +70,16 @@
     }
   },
   {
+    "id": "phoneanimation",
+    "title": "Phone animation",
+    "dominantColor": "#F24484",
+    "palette": [],
+    "variations": {
+      "large": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/phone_animation/phone_animation_large.gif",
+      "thumbnail": "https://s3.eu-central-1.amazonaws.com/cdn.bogdandraghia.com/illustrations/phone_animation/phone_animation_large.gif"
+    }
+  },
+  {
     "id": "bonsai",
     "title": "Bonsai Tree",
     "dominantColor": "#A4BF7A",
