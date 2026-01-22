@@ -35,6 +35,18 @@
     {
       "name": "CDK",
       "color": "#232F3E"
+    },
+    {
+      "name": "OpenSearch",
+      "color": "#005EB8"
+    },
+    {
+      "name": "Bedrock",
+      "color": "#FF9900"
+    },
+    {
+      "name": "Lambda",
+      "color": "#FF9900"
     }
   ],
   "projects": [
@@ -52,6 +64,19 @@
         {
           "label": "Demo",
           "url": "https://bogdandraghia.com/demo/winter-lights/",
+          "target": "_blank"
+        }
+      ]
+    },
+    {
+      "title": "Inventory Deduplication with vector search",
+      "thumbnail": "/images/projects/products-vector/products-vector.png",
+      "content": "A proof of concept for merging inventories from multiple shops using a vector database to match similar products.",
+      "tags": ["AWS", "TypeScript", "CDK", "OpenSearch", "Bedrock", "Lambda"],
+      "links": [
+        {
+          "label": "Github",
+          "url": "https://github.com/BogdanDraghia/inventory-availability-demo",
           "target": "_blank"
         }
       ]
