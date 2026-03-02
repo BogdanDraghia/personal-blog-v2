@@ -32,7 +32,7 @@ const data = projectsRawData as ProjectsCollection;
 const Projects = () => {
   const { projects, tags } = data;
   return (
-    <div className={style.projectContainer}>
+    <div className="content">
       <h1>Projects</h1>
       <ProjectList projects={projects} tags={tags} />
     </div>
